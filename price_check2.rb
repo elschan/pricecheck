@@ -8,22 +8,30 @@
 # The boss insists that he just wants one function that he can put the dimensions and colour count in, and get the total back 
 
 
+# cost based on dimensions
+def size_cost(dim)
+    size_cost= dim * 15
+  end
 
-def price_check(dimensions_in_sqft, num_of_colors)
-
-size_cost = dimensions_in_sqft * 15
-
-	if num_of_colors <= 2
-		color_cost = num_of_colors * 10
-	else 
-		color_cost = num_of_colors *15
-	end
-
-	total = (size_cost + color_cost ) * 115 / 100
-puts total	
+# cost based on number of colors
+def color_cost(num)
+  if num <= 2
+    color_cost = num * 10
+  else color_cost= num  * 15
+  end
 end
 
-price_check(4,3)
+# cost of subtotal pre-tax
+def subtotal(color_cost, size_cost)
+  subtotal = color_cost+size_cost
+end
 
+# cost of total after-tax
+def price_check(dim,num)
+  x = color_cost(num) + size_cost(dim)
+  x = x * 115 / 100
+  puts x
+end
 
+price_check(5,2)
 
